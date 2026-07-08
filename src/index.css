@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --theme-page-from: #F5F3FF;
+    --theme-page-to: #EDE9FE;
+    --theme-header: #F5F3FF;
+    --theme-surface: #F5F3FF;
+    --theme-border: #DDD6FE;
+    --theme-primary: #8B5CF6;
+    --theme-muted: #9178AD;
+    --theme-button: #6D28D9;
+    --theme-button-text: #F5F3FF;
+    --theme-badge-bg: #E5DFFF;
+    --theme-badge-border: #C1A6FF;
+    --theme-toggle-bg: #EDE9FE;
+  }
+
+  .dark {
+    --theme-page-from: #1A102A;
+    --theme-page-to: #2D1B4D;
+    --theme-header: #1F1433;
+    --theme-surface: #231638;
+    --theme-border: #5B21B6;
+    --theme-primary: #C4B5FD;
+    --theme-muted: #DDD6FE;
+    --theme-button: #8B5CF6;
+    --theme-button-text: #F5F3FF;
+    --theme-badge-bg: #2F2148;
+    --theme-badge-border: #6D28D9;
+    --theme-toggle-bg: #2E1065;
+  }
+
+  body {
+    @apply font-montserrat;
+  }
+}
+
+@layer components {
+  .theme-page-gradient {
+    background-image: linear-gradient(to right, var(--theme-page-from), var(--theme-page-to));
+  }
+
+  .theme-header {
+    background-color: var(--theme-header);
+    border-color: var(--theme-border);
+  }
+
+  .theme-surface {
+    background-color: var(--theme-surface);
+    border-color: var(--theme-border);
+  }
+
+  .theme-primary-text {
+    color: var(--theme-primary);
+  }
+
+  .theme-muted-text {
+    color: var(--theme-muted);
+  }
+
+  .theme-button {
+    background-color: var(--theme-button);
+    color: var(--theme-button-text);
+    outline-color: var(--theme-button);
+  }
+
+  .theme-badge {
+    background-color: var(--theme-badge-bg);
+    border-color: var(--theme-badge-border);
+    color: var(--theme-muted);
+  }
+
+  .theme-toggle {
+    background-color: var(--theme-toggle-bg);
+    border-color: var(--theme-border);
+  }
+
+  .confetti {
+    position: fixed;
+    pointer-events: none;
+    animation: fall linear forwards;
+  }
+
+  @keyframes fall {
+    to {
+      transform: translateY(100vh) rotate(360deg);
+      opacity: 0;
+    }
+  }
+
+  /* Радужный прогресс-бар */
+  .rainbow-fill {
+    background: linear-gradient(90deg, #ff4d6d, #ffb86b, #ffd166, #8ee59b, #4dabf7, #b197fc);
+    background-size: 200% 100%;
+    animation: rainbow 4s linear infinite;
+  }
+
+  @keyframes rainbow {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+  }
+}
